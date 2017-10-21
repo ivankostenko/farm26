@@ -1,0 +1,35 @@
+
+<html>
+	<head>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="datepicker-ru.js"></script>
+
+	</head>
+
+	<body>
+
+    <script type="text/javascript">
+
+    jQuery(function($){$(function() {$( "#datepicker" ).datepicker({});$( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");$(".trigger").click(function(){ $("#datepicker").datepicker("show"); });});});
+
+jQuery(function($){$('#datepicker').datepicker()
+    .on("change", function (e) {
+
+    alert($(this).val())
+});});
+    </script>
+
+	<div>
+
+	<br>
+
+	<input type="hidden" id="datepicker">
+    <div id=title><div class="trigger"><span>Click Me</span></div></div>
+
+    </div>
+
+	</body>
+</html>

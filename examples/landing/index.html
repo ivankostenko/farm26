@@ -1,0 +1,736 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Ферма 26 | Производство сайтов</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/smoothwheel.js"></script>
+
+
+<style>
+
+body {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      margin: 0;
+}
+a img {
+		      border: none;
+		      outline : none;
+		      border-style: none;
+			}
+a {
+            text-decoration: none;
+            outline : none;
+            border-style: none;
+        }
+.burns {
+}
+
+.burns p,img {
+  -webkit-transition-duration: 5s;
+  transition-duration: 5s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform-origin: 25% 100%;
+  transform-origin: 25% 100%;
+  -webkit-filter:  saturate(0.6) brightness(1.2);
+  filter:  saturate(0.6) brightness(1.2);
+
+}
+
+.burns p:hover, img:hover {
+  -webkit-transform: scale(1.3) rotate(3deg);
+  transform: scale(1.3) rotate(3deg);
+  -webkit-transform-origin: 25% 25%;
+  transform-origin: 25% 25%;
+  -webkit-filter:  saturate(1.4) brightness(1.2);
+  filter:  saturate(1.4) brightness(1.2);
+  cursor: pointer;
+  cursor: hand;
+}
+</style>
+</head>
+<body>
+
+<img src="images/logo_1.png" style="position:fixed;top:30px;left:30px;z-index:9999;" />
+
+<div class="main"  style="position:fixed;top:30px;right:30px;z-index:9999;">
+										<section class="buttonset">
+											<button id="showRightPush" border="0"><a><span style="text-shadow: 1px 1px 1px #000000;font-size:18px;">МЕНЮ</span><img src="images/menu.png" border="0" /></a></button>
+										</section>
+									</div>
+
+<script>
+
+$(window).scroll(function () {
+    var $body = $(document.body);
+    var bodyHeight = $body.height();
+    var bodyTop = window.scrollY || window.scollTop || document.getElementsByTagName("html")[0].scrollTop;
+    $("#main").css({
+        'transform': 'rotate(' + (bodyTop / bodyHeight * 2) + 'deg)'
+    });
+    $("#ft").css({'transform': 'rotate(-2deg)'});
+
+});
+
+
+</script>
+
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2" style="position: fixed;top:200px;">
+						<h3>МЕНЮ</h3>
+							<a class="scroll" href="#home">Главная</a>
+							<a class="scroll" href="#services">Услуги</a>
+							<a class="scroll" href="#works">Портфолио</a>
+							<a class="scroll" href="#clients">Клиенты</a>
+							<a class="scroll" href="#team">Команда</a>
+							<a class="scroll" href="#price">Цены</a>
+							<a class="scroll" href="#contact">Контакты</a>
+					</nav>
+<div id=main>
+<!-- banner -->
+<div id="home" class="banner">
+	<div class="container">
+		<div class="header-info">
+			<div class="header-info-left">
+				<div id=lg class="logo">
+					<a href="#"></a>
+				</div>
+			</div>
+			<div class="header-info-right"  >
+				<div class="header cbp-spmenu-push">
+
+					<!--script-nav -->
+					<script>
+						$("span.menu").click(function(event){
+							$("ul.navigation").slideToggle("300" , function(){
+							});
+						});
+					</script>
+					<script type="text/javascript">
+								jQuery(document).ready(function($) {
+									$(".scroll").click(function(event){
+										event.preventDefault();
+										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+									});
+								});
+					</script>
+					<div class="clearfix"> </div>
+						<!-- /script-nav -->
+
+									<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+									<script src="js/classie.js"></script>
+									<script>
+										var	menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+											showRightPush = document.getElementById( 'showRightPush' ),
+											body = document.body;
+
+										showRightPush.onclick = function(event) {
+											classie.toggle( this, 'active' );
+											classie.toggle( body, 'cbp-spmenu-push-toleft' );
+											classie.toggle( menuRight, 'cbp-spmenu-open' );
+											disableOther( 'showRightPush' );
+										};
+									</script>
+				</div>
+
+
+			</div>
+
+		</div>
+			<div class="banner-info burns">
+				<h1  style="text-align: center;text-shadow:-1px -1px 0px rgba(64,64,64,0.8)">Производство сайтов под ключ с техническим сопровождением.</h1>
+				<p  style="text-align: center;text-shadow:1px 1px 0px rgba(0,0,0,1)">
+				У Вас есть машина? Может быть Вы даже ежедневно ездите на ней? Технолог с завода изготовителя и т.д. с Вами же не общаются и мозг вы друг другу не выносите. Вот таким же должен быть сайт, он тупо должен работать  24ч в сутки и выполнять свое предназначение.
+				Наша концепция - это взять всё на себя вместе с хостингом, технической и т.п. поддержкой, внесением изменений и продвижением в поисковых системах. По стоимости Волги, а не Мерседеса.</p>
+				<div class="button"  style="text-align: center;text-shadow:-2px -2px 0px rgba(0,0,0,0.5)"><a href="#">ПОГОВОРИМ</a></div>
+				<div class="arrow-icon text-center"><a class="scroll" href="#services"><img src="images/arrow.png" alt="" /></a></div>
+			</div>
+	</div>
+</div>
+<!--/header-banner-->
+<!-- services -->
+<div id="services"class="services">
+	<div class="container">
+		<div class="services-info">
+			<h2  style="text-align: center;text-shadow:-2px 2px 0px rgb(255,255,255)">УСЛУГИ</h2>
+			<p>Для того, чтобы оправдать ожидания и получить ещё больше денег</p>
+			<div class="strip"></div>
+		</div>
+		<div class="services-grids">
+			<div class="col-md-3 services-grid text-center">
+				<div class="fully-img"></div>
+				<h3>АДАПТИВНЫЙ САЙТ</h3>
+				<p>Сайт, интерфейс которого адаптируется под различные устройства, с разными возможностями и размерами экранов..</p>
+			</div>
+			<div class="col-md-3 services-grid text-center">
+				<div class="easy-img"></div>
+				<h3>ЛЕГКАЯ КАСТОМИЗАЦИЯ</h3>
+				<p>Все блоки (текстовые и графические) можно изменить за пару минут и пару рублей к тому же.</p>
+			</div>
+			<div class="col-md-3 services-grid text-center">
+				<div class="seo-img"></div>
+				<h3>ЗАТОЧЁННЫЙ ПОД SEO </h3>
+				<p>Сайт сам себя продвигает в ТОП 10 по коммерческим запросам и продает услуги/товары с очень высокой конверсией.</p>
+			</div>
+			<div class="col-md-3 services-grid text-center">
+				<div class="made-img"></div>
+				<h3>СДЕЛАН С ЛЮБОВЬЮ</h3>
+				<p>Тупо содран с бесплатного шаблона с убиранием ссылок на авторов. Креатив просто зашкаливает, есть закладки и бэк-доры, штобы клиент никуда не смылся не заплатив.</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //services -->
+<!-- our works -->
+<div id="works"class="works">
+	<div class="container">
+		<div class="works-info">
+			<h2>ПОРТФОЛИО</h2>
+			<p>Мы сделали это и это и это и так 100+ раз.</p>
+			<div class="strip"></div>
+		</div>
+			<script type="text/javascript" src="js/modernizr.custom.min.js"></script>
+			<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+			<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+				<!-- //pop-up-box -->
+					<div id="small-dialog1" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/8.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog2" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/23.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog3" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/27.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog4" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/2.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog5" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/30.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog6" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/1.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog7" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/31.jpg" alt="" />
+
+							</div>
+					</div>
+					<div id="small-dialog8" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/32.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog9" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/33.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog10" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/35.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog11" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/26.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog12" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/28.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog13" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/25.jpg" alt="" />
+
+						</div>
+					</div>
+					<div id="small-dialog14" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/34.jpg" alt="" />
+
+							</div>
+					</div>
+					<div id="small-dialog15" class="mfp-hide">
+						<div class="image-top">
+							<img src="images/29.jpg" alt="" />
+
+						</div>
+					</div>
+
+				<script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+
+						});
+				</script>
+
+	    <div id="portfoliolist">
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog1" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/8.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio fun mix_all" data-cat="fun" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog2" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/23.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog3" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/27.jpg" class="img-responsive" alt=""/>
+							 <div class="tour-caption">
+
+							<span> </span>
+						     </div></a>
+						</div>
+					</div>
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog4" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/2.jpg" class="img-responsive" alt=""/>
+							 <div class="tour-caption">
+
+							 <span> </span>
+							 </div></a>
+						</div>
+					</div>
+					<div class="portfolio fun mix_all" data-cat="fun" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog5" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/30.jpg" class="img-responsive" alt=""/>
+							 <div class="tour-caption">
+							 <span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog6" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/1.jpg" class="img-responsive" alt=""/>
+							 <div class="tour-caption">
+
+							 <span> </span>
+							 </div></a>
+						</div>
+					</div>
+					<div class="portfolio fun mix_all" data-cat="fun" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog7" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/31.jpg" class="img-responsive" alt=""/>
+							 <div class="tour-caption">
+
+							 <span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog8" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/32.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog9" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/33.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog10" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/35.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio fun mix_all" data-cat="fun" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog11" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/26.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog12" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/28.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio app mix_all" data-cat="app" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog13" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/25.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio fun mix_all" data-cat="fun" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog14" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/34.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+					<div class="portfolio card mix_all" data-cat="card" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper wow bounceIn" data-wow-delay="0.4s">
+							<a href="#small-dialog15" class="b-link-stripe b-animate-go  thickbox play-icon popup-with-zoom-anim">
+						     <img src="images/29.jpg" class="img-responsive" alt=""/>
+							<div class="tour-caption">
+
+							<span> </span>
+							</div></a>
+						</div>
+					</div>
+				<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //our works -->
+<!-- happy clients -->
+<div id="clients" class="happy-clients">
+	<div class="container">
+		<div class="clients-info">
+			<h2>СЧАСТЛИВЫЕ КЛИЕНТЫ</h2>
+			<p>Каждый второй уже банкрот по независящим от нас причинам. Кризис однако.</p>
+			<div class="strip"></div>
+				<div class="slider-info text-center">
+					<p>Был проведен комплексный анализ портала в плоскостях юзабилити и SEO, по результатам которого предоставлен развернутый экспертный отчет с рекомендациями по оптимизации визуальной и текстовой составляющих. Итоговые материалы были достойно оформлены и написаны доступным и понятным языком. Полученный документ лег в основу измененной концепции работы над сайтом "Супер.ру" WWW.SUPER.RU. Ну а потом мы получили готовый сайт, не требующий никакого сопровождения.</p>
+					<img src="images/quotes.png" alt=" "/>
+				</div>
+				<div class="slider">
+					<!-- responsiveslides -->
+						<script src="js/responsiveslides.min.js"></script>
+							<script>
+								// You can also use "$(window).load(function() {"
+								$(function () {
+								 // Slideshow 4
+								$("#slider3").responsiveSlides({
+									auto: true,
+									pager: true,
+									nav: false,
+									speed: 500,
+									namespace: "callbacks",
+									before: function () {
+								$('.events').append("<li>before event fired.</li>");
+								},
+								after: function () {
+									$('.events').append("<li>after event fired.</li>");
+									}
+									});
+									});
+						</script>
+					<!-- responsiveslides -->
+					<div  id="top" class="callbacks_container">
+						<ul class="rslides" id="slider3">
+							<li>
+								<div class="slider-img text-center">
+									<img src="images/6.png" alt=" " />
+									<h3>Василий Теркин</h3>
+									<p>Архитектор всего и вся</p>
+								</div>
+							</li>
+							<li>
+								<div class="slider-img text-center">
+									<img src="images/4.png" alt=" " />
+									<h3>Иван Непомнящий</h3>
+									<p>Маркетингов директор</p>
+								</div>
+							</li>
+							<li>
+								<div class="slider-img text-center">
+									<img src="images/37.png" alt=" " />
+									<h3>Денис Давыдов</h3>
+									<p>Ведущий на переговорах</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+<!-- //happy clients -->
+<!-- professional team -->
+<div id="team" class="team">
+	<div class="container">
+		<div class="team-info">
+			<h2>НАША ПРОФФЕСИОНАЛЬНАЯ КОММАНДА</h2>
+			<p>Настолько дружна, что все работают удаленно и никогда друг друга вживую не видели, а выпить так хочется всместе.</p>
+			<div class="border"></div>
+		</div>
+		<div class="team-grids">
+			<div class="col-md-3 team-grid text-center">
+				<div class="team-image">
+					<img src="images/9.jpg" alt=" " />
+					<div class="team-desc">
+						<h3>Иван Иванович</h3>
+						<p>НАЧАЛЬНИК</p>
+						<ul>
+							<li><a class="twitter" href="#"></a></li>
+							<li><a class="linkin" href="#"></a></li>
+							<li><a class="vimeo" href="#"></a></li>
+							<li><a class="dribble" href="#"></a></li>
+							<li><a class="message" href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 team-grid text-center">
+				<div class="team-image">
+					<img src="images/10.jpg" alt=" " />
+					<div class="team-desc">
+						<h3>Борис</h3>
+						<p>Програмист</p>
+						<ul>
+							<li><a class="twitter" href="#"></a></li>
+							<li><a class="linkin" href="#"></a></li>
+							<li><a class="vimeo" href="#"></a></li>
+							<li><a class="dribble" href="#"></a></li>
+							<li><a class="message" href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 team-grid text-center">
+				<div class="team-image">
+					<img src="images/11.jpg" alt=" " />
+					<div class="team-desc">
+						<h3>Елена</h3>
+						<p>Дизайнер</p>
+						<ul>
+							<li><a class="twitter" href="#"></a></li>
+							<li><a class="linkin" href="#"></a></li>
+							<li><a class="vimeo" href="#"></a></li>
+							<li><a class="dribble" href="#"></a></li>
+							<li><a class="message" href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 team-grid text-center">
+				<div class="team-image">
+					<img src="images/5.jpg" alt=" " />
+					<div class="team-desc">
+						<h3>Маргарита</h3>
+						<p>Продавец</p>
+						<ul>
+							<li><a class="twitter" href="#"></a></li>
+							<li><a class="linkin" href="#"></a></li>
+							<li><a class="vimeo" href="#"></a></li>
+							<li><a class="dribble" href="#"></a></li>
+							<li><a class="message" href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="meet-button"><a href="#">ПОЛНЫЙ СПИСОК КОМАНДЫ</a></div>
+	</div>
+</div>
+<!-- professional team -->
+<!-- team-bottom -->
+<div class="team-bottom">
+	<div class="container">
+		<div class="bottom-grids">
+			<div class="bottom-grid text-center">
+				<img src="images/13.png" alt=" " />
+			</div>
+			<div class="bottom-grid text-center">
+				<img src="images/14.png" alt=" " />
+			</div>
+			<div class="bottom-grid text-center">
+				<img src="images/15.png" alt=" " />
+			</div>
+			<div class="bottom-grid text-center">
+				<img src="images/16.png" alt=" " />
+			</div>
+			<div class="bottom-grid text-center">
+				<img src="images/17.png" alt=" " />
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //team-bottom -->
+<!-- pricing-table -->
+<div id="price" class="pricing-table burns">
+	<div class="container">
+		<div class="pricing-info">
+			<h2>ЦЕНЫ</h2>
+			<p>Цены просто кошмарно демократичны, т.к. хватает только на еду нашему непьющему много коллективу.</p>
+			<div class="strip"></div>
+		</div>
+		<div class="pricing-grids">
+			<div class="pricing-grid highlight">
+				<div class="pack text-center">
+					<h3>Обхохочешься</h3>
+					<h2>Бесплатно</h2>
+				</div>
+				<ul class="one">
+					<li>Шаблон как у этого сайта</li>
+					<li>Наполнение как у этого сайта</li>
+					<li>Контактные данные любые</li>
+				</ul>
+				<div class="sign-up"><a href="#">ХОХОЧИ</a></div>
+			</div>
+			<div class="pricing-grid">
+				<div class="pack standard text-center">
+					<h3>Поговорим</h3>
+					<h2>5 000 руб.</h2>
+				</div>
+				<ul class="two">
+					<li>Шаблон сайта немного лучше этого</li>
+					<li>Всякая там дергающаяся графика</li>
+					<li>Страниц допустим до 3х</li>
+					<li>Сопровождения никакого</li>
+				</ul>
+				<div class="sign-up"><a href="#">ПОГОВОРИМ</a></div>
+			</div>
+			<div class="pricing-grid highlight">
+				<div class="pack text-center">
+					<h3>Продолжим</h3>
+					<h2>Договорная</h2>
+				</div>
+				<ul class="three">
+					<li>Шаблон отсутствует напрочь</li>
+					<li>Графика по желанию любая</li>
+					<li>Страниц скока хочешь иногда</li>
+					<li>Размещение на хостинге</li>
+					<li>Техническая поддержка</li>
+					<li>Моральная поддержка</li>
+					<li>Редакция днем и ночью</li>
+				</ul>
+				<div class="sign-up"><a href="#">ПРОДОЛЖИМ</a></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //pricing-table -->
+<!-- contact -->
+<div id="contact" class="contact">
+	<div class="contact-left">
+
+		<div id=map style="">
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=hghMHLZolVL5r3K5ES64QCFLmQ8TbevB&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+    </div>
+    </div>
+	<div class="contact-right">
+
+			<div class="contact-info">
+				<form>
+
+					E-Mail: <input type="text" placeholder="" required>
+
+					Сообщение: <textarea placeholder="" required></textarea>
+					<input type="submit" value="ОТПРАВИТЬ">
+				</form>
+			</div>
+
+	</div>
+	<div class="clearfix"></div>
+</div>
+<!-- //contact -->
+<!-- footer -->
+<div id=ft class="footer">
+	<div class="container">
+		<div class="footer-left">
+			<a href="#"><img src="images/logo.png" alt=""/></a>
+		</div>
+		<div class="footer-right">
+				<p>Заходи иногда</p>
+				<ul>
+					<li><a class="fb" href="#"></a></li>
+					<li><a class="twitt" href="#"></a></li>
+					<li><a class="google" href="#"></a></li>
+					<li><a class="drib" href="#"></a></li>
+				</ul>
+				<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //footer -->
+</div>
+</body>
+</html>

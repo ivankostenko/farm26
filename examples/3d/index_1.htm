@@ -1,0 +1,170 @@
+<html>
+<head>
+
+<style>
+body{
+  width:100%;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0;
+}
+svg{
+  position:fixed;
+  width: 80%;
+  height:80vh;
+  padding-top:5em;
+}
+
+.svg{
+  width:100%;
+  text-align:center;
+}
+
+
+        @font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url(http://fonts.gstatic.com/s/robotoslab/v6/y7lebkjgREBJK96VQi37ZjUj_cnvWIuuBMVgbX098Mw.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+        h1 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 30px;
+            color: #653332;
+        }
+
+        h2 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 20px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 30px;
+            color: #653332;
+        }
+
+        h3 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 24px;
+            color: #653332;
+        }
+
+        h5 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 18px;
+            color: #653332;
+        }
+h4 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 18px;
+            color: #D4AF37;
+            text-shadow: 0px 0px 18px #D4AF37;
+        }
+        p {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 17px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            color: #653332;
+        }
+
+        a {
+            text-decoration: none
+        }
+    }
+</style>
+</head>
+
+<body>
+
+
+<div class ='svg'>
+<svg width="100" height="100" viewBox="100 0 400 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs id="DEF">
+<linearGradient id="rhue">
+	<stop offset="0" id="ro0" stop-color="red"/>
+	<stop offset=".25" id="ro1" stop-color="blue"/>
+	<stop offset=".75" id="ro2" stop-color="yellow"/>
+	<stop offset="1" id="ro3" stop-color="green"/>
+</linearGradient>
+</defs>
+<ellipse cx="290" cy="250" rx="80" ry="80">
+	<animate attributeName="fill" dur="5s" values="hsla(304,100%, 78%, 0.7); hsla(4,89%,75%, 0.7); hsla(64,100%,78%,0.7); hsla(124,89%,75%,0.7); hsla(184,100%,78%, 0.7); hsla(244,89%,75%,0.7)" repeatCount="indefinite"/>
+</ellipse>
+<g id="penta">
+		<g  id="R1" transform="translate(200 250)">
+		<ellipse cx="0" cy="0" rx="100" ry="30" opacity=".4" fill="url(#rhue)">
+			<animateTransform attributeName="transform" type="rotate" dur="7s" from="0" to="360" repeatCount="indefinite"/>
+			<animate attributeName="cx" dur="8s" values="-20; 120; -20" repeatCount="indefinite"/>
+			<animate attributeName="ry" dur="3s" values="10; 60; 10" repeatCount="indefinite"/>
+		</ellipse>
+		</g>
+		<use xlink:href="#R1" transform="rotate(30 300 250)"/>
+		<use xlink:href="#R1" transform="rotate(60 300 250)"/>
+		<use xlink:href="#R1" transform="rotate(90 300 250)"/>
+		<use xlink:href="#R1" transform="rotate(120 300 250)"/>
+</g>
+<use xlink:href="#penta" transform="rotate(72 290 250)"/>
+<use xlink:href="#penta" transform="rotate(144 290 250)"/>
+<use xlink:href="#penta" transform="rotate(216 290 250)"/>
+<use xlink:href="#penta" transform="rotate(288 290 250)"/>
+</svg>
+
+</div>
+
+ <div  id=main class="disable-selection" style="text-align: center; overflow: hidden;padding-left: 6%;padding-right: 6%;>
+
+        <table style="display: inline-block;" border=0>
+        <tbody>
+        <tr>
+        <td>
+        <a href="javascript:history.back()">
+         <img id=logo src="data:image/png;base64,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" width=306 height=60>
+        </a>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+
+    <h1  style="text-align: center;">Ферма 495 - это производство сайтов под ключ с техническим сопровождением.</h1>
+
+    <p style="text-align: justify; text-indent: 0px;"><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">РАЗРАБОТКА И СОЗДАНИЕ САЙТОВ - </span>
+    Каждый сайт в интернет выполняет определённую задачу для своего владельца, которая включает в себя необходимость использования определённых программных продуктов для эффективного функционирования в браузерах посетителей и поисковых системах. Интернет резко увеличил техничесное оснащение всеобщей безграмотности. Мы подберём для Вас самую подходящую систему управления сайтом и настроим под задачи Вашего проекта, разместив на лучшем, надёжном и проверенном сервере в Интернет. Вы легко сможете управлять своим сайтом самостоятельно или воспользоваться услугами технической поддержки. Отключили интернет на 10 минут, вышел поболтать с семьей, вроде неплохие люди.
+    Важно понимать, что специалисты нашей компании не используют в своей работе бесплатного софта и индивидуально подходят к разработке каждого сайта обеспечивая ответственное отношение к проделанной работе. Напился до потери паролей.
+    Вы можете ознакомиться с сайтами досуга и адалт тематики, которые мы создали для наших Клиентов, а так же с большим количеством сайтов коммерческих предприятий, которые мы создавали с 2007-го года. Есть от чего в отчаянье прийти.
+    </p>
+
+    <p style="text-align: justify; text-indent: 0px;"><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ПОДДЕРЖКА САЙТОВ - </span>При создании сайтов мы обеспечиваем Заказчика всеми правами собственности на услуги интернет-провайдеров, но если Вам затруднительно обеспечивать стабильную работу своего сайта и вносить своевременные обновления, то наш отдел технической поддержки будет аккуратно содержать Ваш интернет ресурс на долгосрочной основе. Ударим алкоголизмом по компьютерной зависимости!
+    </p>
+
+    <p style="text-align: justify; text-indent: 0px;"><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ПРОДВИЖЕНИЕ САЙТОВ - </span>Основной специализацией нашей компании является работа по продвижению сайтов в результатах поискового запроса технологиями, одобренными поисковыми системами Yandex и Google. Кто один из тех людей, кто может искать Яндекс в Google и наоборот? Мы располагаем уникальными тарифными планами на Фирменное продвижение без периодических дополнительных платежей и обеспечиваем надёжное гарантированное продвижение сайтов. Если долго сидеть в интернете, можно увидеть, как мимо проплывает твоя жизнь.
+    </p>
+
+    <p style="text-align: justify; text-indent: 0px;"><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ИНТЕРНЕТ - </span>Это новый мир. Мир современных коммуникаций. Мир безграничных возможностей. Мир будущего. Он стремительно растёт и развивается, предоставляя всё новые и новые возможности для Вашего бизнеса. Главное — их не упустить! Все вперед и только вперед. Где вперед? Должен быть напротив назад, так что ищите назад, т.к. там и вперед. Помните, что развитие интернета уже намного опередило развитие его пользователей.
+    </p>
+
+    <h2><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">Этот текст написан для поисковых систем, не надо его читать - тупо переходите в <a href="http://farm26.ru/" target="_parent"><u>ПОРТФОЛИО</u></a> или <a href="http://farm495.ru/obana.htm"><u>КОНКУРЕНТЫ</u></a>.</span></h2>
+
+    </div>
+</body></html>

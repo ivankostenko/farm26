@@ -1,0 +1,111 @@
+<html>
+<head>
+
+<style>
+.environment {
+  perspective: 10000px;
+  width: 380px;
+  height: 380px;
+  margin: 100px auto;
+}
+
+.rotor {
+  transform-style: preserve-3d;
+  width: 380px;
+  height: 380px;
+  transition: transform 0.8s;
+}
+
+.is-pointer-down .rotor {
+  transition: none;
+}
+
+.rotor1 {
+  transform: rotateX(-35deg);
+}
+
+.rotor2 {
+  transform: rotateY(45deg);
+}
+
+.letter {
+  display: block;
+  width: 380px;
+  height: 380px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  opacity: 0.8;
+}
+
+.is-screen .letter {
+  opacity: 1;
+  mix-blend-mode: screen;
+}
+
+.letter-r {
+  transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+}
+
+.letter-g {
+  transform: translate3d(-75px, 20px, 50px) rotateY(-90deg) ;
+}
+
+.letter-b {
+  transform: translate3d(0px, -20px, 90px);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="environment" style="border:0px solid black;">
+  <div class="rotor rotor1">
+    <div class="rotor rotor2">
+      <img class="letter letter-r" src="http://farm26.ru/index_files/company_1.png" />
+      <img class="letter letter-g" src="http://farm26.ru/index_files/landpage_2.png" />
+      <img class="letter letter-b" src="http://farm26.ru/index_files/company_2.png" />
+    </div>
+  </div>
+</div>
+
+<script>var w = window.innerWidth;
+var h = window.innerHeight;
+var env = document.querySelector('.environment');
+var rotor1 = document.querySelector('.rotor1');
+var rotor2 = document.querySelector('.rotor2');
+var startX, startY;
+document.addEventListener('mousedown', function (event) {
+    startX = event.pageX;
+    startY = event.pageY;
+    event.preventDefault();
+    env.classList.add('is-pointer-down');
+    env.classList.add('is-moving');
+    window.addEventListener('mousemove', onMousemove);
+    window.addEventListener('mouseup', onMouseup);
+});
+function onMousemove(event) {
+    var dx = event.pageX - startX;
+    var dy = event.pageY - startY;
+    var angle1 = dy / h * -360 - 35;
+    var angle2 = dx / w * 360 + 45;
+    rotor1.style.transform = 'rotateX(' + angle1 + 'deg)';
+    rotor2.style.transform = 'rotateY(' + angle2 + 'deg)';
+}
+function onMouseup() {
+    env.classList.remove('is-pointer-down');
+    window.removeEventListener('mousemove', onMousemove);
+    window.removeEventListener('mouseup', onMouseup);
+    rotor1.style.transform = '';
+    rotor2.style.transform = '';
+}
+env.addEventListener('transitionend', function (event) {
+    if (event.target == rotor1) {
+        env.classList.remove('is-moving');
+    }
+});
+
+</script>
+</body></html>

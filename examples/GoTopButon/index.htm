@@ -1,0 +1,56 @@
+
+<script src="jquery.min.js"></script>
+<script src="taccgl.js"></script>
+
+<style>
+#goTop{
+	cursor: hand;
+	opacity: 0;
+    position:fixed;
+    bottom:0px;
+    right:10px;
+}
+</style>
+<script>
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if($(this).scrollTop() > 0){
+            $('#goTop').stop().animate({
+         	   opacity: 1,
+                bottom: '40px'
+                }, 500);
+        }
+        else{
+            $('#goTop').stop().animate({
+            	opacity: 0,
+               bottom: '0px'
+            }, 500);
+        }
+    });
+    $('#goTop').click(function() {
+        $('html, body').stop().animate({
+           scrollTop: 0
+        }, 500, function() {
+           $('#goTop').stop().animate({
+           	 	opacity:  0,
+               bottom: '0px'
+           }, 500);
+        });
+    });
+    $('#goTop').mouseenter( function(){
+		 	var box_color="#fafaff";
+		 	taccgl.actor('logo',taccgl.dddBox).rotateMiddle(Math.sqrt(0.9),Math.sqrt(0.1),0).dur(2).selFront().blend(1,1).color(box_color).selBack().blend(1,1).color(box_color).selTop().blend(1,1).color(box_color).selBottom().blend(1,1).color(box_color).selRight().blend(0,0).color(box_color).selLeft().blend(0,0).color(box_color).start();taccgl.start('no epilepsy warning');
+		 	taccgl.actor('goTop',taccgl.dddBox).rotateMiddle(Math.sqrt(0.9),Math.sqrt(0.1),0).dur(2).selFront().blend(1,1).color(box_color).selBack().blend(1,1).color(box_color).selTop().blend(1,1).color(box_color).selBottom().blend(1,1).color(box_color).selRight().blend(0,0).color(box_color).selLeft().blend(0,0).color(box_color).start();taccgl.start('no epilepsy warning');
+	   		});
+});
+</script>
+<BODY>
+
+<img id=goTop src="scrollup_1.png">
+
+<div style="position:fixed;top:500px;left:300px;"><img id=logo src="logo.png"></div>
+
+<div style="height:2012px;width:100%;"></div>
+
+</BODY>
+

@@ -1,0 +1,226 @@
+
+<html>
+<head>
+	 <title>Привет мужики</title>
+	 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" type="image/x-icon" href="favicon_512_512.png" />
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Patua+One);
+.disable-selection {
+     -moz-user-select: none;
+      -ms-user-select: none;
+   -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+html {
+     -webkit-transform: rotate(1deg);
+     -moz-transform: rotate(1deg);
+}
+body {
+  font-family: sans-serif;
+  font-weight: 300;
+  background:   url("./index_files/bg_base.png") center center repeat fixed,url("./index_files/bg_10.jpg") center center repeat;
+  background-size: 40%;
+  background-color: rgb(0,0,0);
+  animation: myfadeInAnimation 3s;
+  cursor:pointer;
+  transition: background 0.5s linear;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+@keyframe myfadeInAnimation {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-webkit-keyframes myfadeInAnimation {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.container {
+			width: 84%;
+			margin:0 auto;
+			max-width:1140px;
+		}
+
+h1, h2, h3, h4, h5 {
+    font-size: 1.667em;
+    line-height: 1.25em;
+    margin-bottom: 0.25em;
+    font-weight: normal;
+}
+
+
+.textShadow {
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.boxShadow {
+  -webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.home {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 60%;
+  background: url('./index_files/test-bg-2.png') 50% 0 no-repeat fixed, url('./index_files/test-bg-4.png') 50% 0 repeat fixed;
+  background-size: 50%, 20%;
+  z-index: 3;
+}
+
+.about {
+  position: relative;
+  top: 20%;
+  margin: 0 auto;
+  width: 100%;
+  height: 75%;
+  background: url('./index_files/test-bg-1.png') 50% 0 no-repeat fixed, url('./index_files/test-bg-4.png') 50% 0 repeat fixed;
+  background-size: 70%, 20%;
+  z-index: 2;
+}
+
+.contact {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 70%;
+  background: url('./index_files/test-bg.png') 50% 0 no-repeat, url('./index_files/test-bg-4.png') 50% 0 repeat fixed;
+  background-size: 80%, 20%;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  height: 458px;
+  padding: 0 10%;
+  text-align: center;
+}
+
+.articleTitle {
+  margin-bottom: 0.25em;
+  font-family: 'Patua One', cursive;
+  font-size: 8em;
+  line-height: 1em;
+  color: #fff;
+}
+
+  .articleTitle .dark {
+    color: #333;
+  }
+
+.articleSubTitle {
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.text{
+  display:inline-block;
+  width:100%;
+  height:auto;
+  font-size: 1.5vmin;
+  font-size: 3vmax;
+}
+
+</style>
+
+	<script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/ui/1.9.0/jquery-ui.js" type="text/javascript"></script>
+    <script src="./js/jquery.fittext.js"></script>
+	<script src="./js/smoothwheel.js"></script>
+</head>
+<body oncopy="return false" onpaste="return false" oncut="return false" oncontextmenu="return false" >
+
+<script>
+
+var is_big = false;
+var is_fade = false;
+
+$(document).ready(function(){
+
+  document.body.addEventListener('click', function(e) {
+      {
+          if (!is_big)
+	          $("body").css("background-size","50%");
+	      else
+	      		$("body").css("background-size","20%");
+			is_big=!is_big;
+      }
+	});
+  document.body.addEventListener('mouseout', function(e) {
+      if(e.relatedTarget === document.querySelector('html'))
+      {
+          if (!is_fade)
+	          $("#main").fadeOut(1000);
+	      else
+	      	  $("#main").fadeIn(1000);
+			is_fade=!is_fade;
+      }
+	});
+
+  var $window = $(window);
+
+  $('div[data-type="background"]').each(function(){
+    var $bgobj = $(this);
+    $(window).scroll(function() {
+      var yPos = -($window.scrollTop() / $bgobj.data('speed'));
+      var coords = '50% '+ yPos + 'px';
+      $bgobj.css({
+        backgroundPosition: coords
+      });
+    });
+  });
+
+});
+
+
+
+$(window).scroll(function () {
+    var $body = $(document.body);
+	    var bodyHeight = $body.height();
+	    var bodyTop = window.scrollY || window.scollTop || document.getElementsByTagName("html")[0].scrollTop;
+	    $("#main").css({
+	        'transform': 'rotate(' + (bodyTop / bodyHeight * 2) + 'deg)'
+    });
+});
+</script>
+
+<div id=main class="container disable-selection">
+<div class="home boxShadow" data-type="background" data-speed="2" class="pages">
+  <div class="content">
+    <h1 id=text_1 class="articleTitle textShadow">FARM 26</h1>
+    <h3 id=text_2 class="articleSubTitle textShadow">Производство сайтов под ключ</h3>
+  </div>
+</div>
+
+<div class="about boxShadow" data-type="background" data-speed="3" class="pages">
+  <div class="content">
+    <h1 id=text_3 class="articleTitle textShadow">Наши <span class="dark">услуги</span></h2>
+    <h3 class="articleSubTitle text textShadow">Наша концепция - это взять всё на себя вместе с хостингом, технической и т.п. поддержкой, внесением изменений и продвижением в поисковых системах. По стоимости <br>Волги, а не Мерседеса.
+    </span></h3>
+  </div>
+</div>
+
+<div class="contact boxShadow" data-type="background" data-speed="4" class="pages">
+  <div class="content">
+    <h2 id=text_5 class="articleTitle textShadow">Наши <span class="dark">контакты</span></h2>
+    <h3 id=text_6 class="articleSubTitle   textShadow">Есть вопросы - звони Нам!</h3>
+  </div>
+</div>
+</div>
+
+	<script type="text/javascript">
+	    $("#text_1").fitText(1.1, { minFontSize: '60px', maxFontSize: '160px' });
+	    $("#text_2").fitText(1.1, { minFontSize: '10px', maxFontSize: '40px' });
+	    $("#text_3").fitText(1.1, { minFontSize: '60px', maxFontSize: '160px' });
+	    $("#text_4").fitText(1.1, { minFontSize: '10px', maxFontSize: '40px' });
+        $("#text_5").fitText(1.1, { minFontSize: '60px', maxFontSize: '160px' });
+	    $("#text_6").fitText(1.1, { minFontSize: '10px', maxFontSize: '40px' });
+	</script>
+</body>
+</html>

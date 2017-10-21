@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/classie.js"></script>
+
+<style>
+a {
+	color: #f0f0f0;
+	text-decoration: none;
+}
+a:hover {
+	color: #000;
+}
+</style>
+
+	</head>
+	<body>
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+			<a href="#">Celery seakale</a>
+			<a href="#">Dulse daikon</a>
+			<a href="#">Zucchini garlic</a>
+			<a href="#">Catsear azuki bean</a>
+			<a href="#">Dandelion bunya</a>
+			<a href="#">Rutabaga</a>
+		</nav>
+
+		<button id="showLeft" style="float: right;">Show/Hide Left Slide Menu</button>
+
+
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' );
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+			};
+
+		</script>
+	</body>
+</html>

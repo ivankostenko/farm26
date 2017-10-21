@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+.disable-selection {
+     -moz-user-select: none; /* Mozilla browsers (e.g. Firefox) */
+      -ms-user-select: none; /* Microsoft browsers (e.g. IE) */
+   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* WebKit browsers (e.g. Chrome and Safari) and Opera browsers */
+
+  -webkit-touch-callout: none; /* Disable iOS/Android callouts on touch event */
+}
+
+
+body {
+background:none transparent;
+background-color:transparent;
+overflow: hidden;
+cursor: pointer;
+}
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+
+			}
+@font-face {
+            font-family: 'Roboto Slab';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url(https://fonts.gstatic.com/s/robotoslab/v6/y7lebkjgREBJK96VQi37ZjUj_cnvWIuuBMVgbX098Mw.woff2) format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+h1 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 36px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 30px;
+            color: #653332;
+        }
+
+        h3 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 22px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 24px;
+            color: #653332;
+        }
+
+        h5 {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 18px;
+            color: #653332;
+        }
+
+        p {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 20px;
+            color: #653332;
+        }
+
+        a {
+            text-decoration: none
+        }
+        a img {
+				      border: none;
+				      outline : none;
+			}
+
+        span {
+            font-family: Roboto Slab, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 400;
+            line-height: 18px;
+
+        }
+div:hover span{
+    background-color: rgba( 232, 232, 232, 0.3);
+}
+#wrap {
+  position: absolute;
+  left: 47%;
+  top: 240px;
+
+}
+
+.cube-wrapper {
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 50px;
+
+   perspective: 800px;
+   perspective-origin: 50% 50px;
+}
+
+.cube {
+  position: relative;
+  width: 100px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform-origin: 50px 50px 0px;
+
+  transform-style: preserve-3d;
+  transform-origin: 50px 50px 0px;
+}
+
+.cube div {
+  outline: 1px solid #999;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.7;
+  box-shadow: inset 0px 0px 50px #555;
+  cursor: pointer;
+
+}
+
+.cube div.back {
+  -webkit-transform: translateZ(-50px) rotateY(180deg);
+  transform: translateZ(-50px) rotateY(180deg);
+  background-image: url(https://res.cloudinary.com/farm26/image/upload/v1498836554/1r_ycybav.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cube div.right {
+  -webkit-transform: rotateY(-270deg) translateX(50px);
+  -webkit-transform-origin: top right;
+  transform: rotateY(-270deg) translateX(50px);
+  transform-origin: top right;
+  background-image: url(https://res.cloudinary.com/farm26/image/upload/v1498836554/1r_ycybav.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cube div.left {
+  -webkit-transform: rotateY(270deg) translateX(-50px);
+  -webkit-transform-origin: center left;
+  transform: rotateY(270deg) translateX(-50px);
+  transform-origin: center left;
+  background-image: url(https://res.cloudinary.com/farm26/image/upload/v1498836554/1r_ycybav.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cube div.top {
+  -webkit-transform: rotateX(-90deg) translateY(-50px);
+  -webkit-transform-origin: top center;
+  transform: rotateX(-90deg) translateY(-50px);
+  transform-origin: top center;
+  background-image: url(https://res.cloudinary.com/farm26/image/upload/v1498836392/10r_kjrb3z.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cube div.bottom {
+  -webkit-transform: rotateX(90deg) translateY(50px);
+  -webkit-transform-origin: bottom center;
+
+  transform: rotateX(90deg) translateY(50px);
+  transform-origin: bottom center;
+  background-image: url(https://res.cloudinary.com/farm26/image/upload/v1498836392/10r_kjrb3z.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.cube div.front {
+  -webkit-transform: translateZ(50px);
+  transform: translateZ(50px);
+  background-image: url(https://res.cloudinary.com/farm26/image/upload/v1498836554/1r_ycybav.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+		</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="./js/datepicker-ru.js"></script>
+<script src='./js/TweenMax.min.js'></script>
+
+	</head>
+	<body  oncopy="return false;" onselectstart="return false" oncontextmenu="return false;">
+<script>
+function is_mobile() {
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+    return true;
+  }
+ else {
+    return false;
+  }
+}
+function is_anime() {
+var a = window.location.toString();
+if (a.substring(a.indexOf("=")+1) == 'true')
+   return false;
+else
+   return true;
+}
+
+jQuery(function($){
+$( "#title" ).tooltip({
+  classes: {
+    "ui-tooltip": "ui-corner-all ui-widget-shadow"
+  }
+});
+});
+
+function dateCheck(from_,to_,check_) {
+
+    var check = new Date( check_.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+    var from = new Date( from_.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+    var to = new Date( to_.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+
+    if((check.getTime() <= to.getTime() && check.getTime() >= from.getTime())) {
+        return true;
+    }
+    return false;
+}
+
+
+jQuery(function($){
+$("#datepicker").datepicker( {
+     onSelect: function(date) {
+        if (dateCheck('21-04-2017', '20-05-2017', date) || dateCheck('21-04-2016', '20-05-2016', date) || dateCheck('21-04-2018', '20-05-2018', date))
+           {
+           $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ТЕЛЕЦ (21.04 – 20.05)</span>');
+           $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Сложный для человека <span style="color: #333399;">собачий психотип</span>. Это очень упрямые животные, большие собственники, "материалисты" и любители поесть. К собаке–Тельцу совершенно бесполезно применять насилие. В связи с этим неопытные собаководы становятся зачастую "собакой своей собаки", а собака – "хозяином своего хозяина". Переломить Тельца нельзя, его нужно "вылепить" под себя, то есть придумать что–то очень интересное и важное для Вашей собаки. Вот тогда Вы получите не только прилежного ученика, но и стремящегося к постоянному обучению пса.</p>');
+           $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Обучаются и дрессируются Тельцы медленно, но основательно. Эти собаки не выносят спешки. Наследуемое упрямство может придавать характеру собаки упорство и настойчивость, так необходимые многим. А это очень важное качество для рабочей или спортивной собаки. Щенки–Тельцы очень влюбчивы, ласковы, миролюбивы, дома уживаются со всеми домашними животными, с собаками дружат. Но всегда являются ярко выраженными собственниками, свое место в доме или во дворе охраняют яростно. Сторожевой пес–Телец верен своему хозяину, никому не даст его в обиду, никого постороннего не впустит.</p>');
+           $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">В целом Тельцы здоровы, энергичны, достаточно выносливы, хотя заниматься особенно не любят, физические нагрузки повергают их в уныние. Они противники всяческих нововведений, изменений места прогулки или маршрута они не любят. И хотя собака–Телец добрая и ласковая, очень терпимая и терпеливая, но доведенная до состояния ярости становится неуправляемой и по–настоящему опасной, тем более что она легче других переносит боль. Кроме того, Тельцы склонны к ожирению, аллергиям. Им <span style="color: #333399;">необходимы диета</span> и активный образ жизни.</p>');
+           }
+        else
+        if (dateCheck('21-03-2017', '20-04-2017', date) || dateCheck('21-03-2016', '20-04-2016', date) || dateCheck('21-03-2018', '20-04-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ОВЕН (21.03 – 20.04)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Активное, задиристое животное с резкими, порывистыми движениями, ярко выраженным инстинктом преследования, и не только в щенячьем возрасте, в связи с чем возникают реальные возможности гибели под колесами при неправильном воспитании. Поэтому четвероногого Овен необходимо либо все время водить на поводке, либо качественно дрессировать. Собака–Овен способна извести Вас своей неиссякаемой энергией</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Она нуждается в частых и длительных прогулках. Очень их любит. К прочим &#171;прелестям&#187; собачьего Овна относится неудержимое стремление &#171;пошалить&#187; – сожрать на улице какую–нибудь дрянь, включая отраву. Неудивительно, что собака–Овен требует к себе пристального внимания и постоянной, с самого детства, систематической качественной дрессировки.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Управлять собакой–Овном следует быстрыми энергичными жестами, подкрепленными четкой звуковой командой. С импульсивным Овном, если уж Вы именно его себе завели, готовьтесь стать спортсменом: уж очень любит он дух соревнований!</p>');
+           }
+        else
+        if (dateCheck('22-05-2017', '02-06-2017', date) || dateCheck('22-05-2016', '02-06-2016', date) || dateCheck('22-05-2018', '02-06-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">БЛИЗНЕЦЫ (22.05 – 21.06)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">С собакой Близнецом не соскучишься. Это обаятельные собаки, на которых невозможно не обратить внимания, независимо от породы. Собака для тех, кто не устал любить и требует любви и внимания к своей собачьей персоне. Ей постоянно нужно чувствовать себя любимой и обласканной. Она не выносит одиночества. Собака–Близнец – это легкомыслие, чувствительность и эмоциональность в одном существе. Она до непредсказуемости переменчива в своих намерениях и настроениях. Это взбалмошное существо обладает удивительной способностью менять свое поведение, то приноравливаясь к ситуации, то идя ей наперекор. Эта собака (собака!) склонна к обману</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">С искренним выражением невинности и непорочности на морде будет стоять посреди разгромленной комнаты и искать вместе с Вами пропавшие сосиски. При всем при этом они не бессовестны. Просто они умны, энергичны, дерзки в поступках, так как быстро принимают решения, что является следствием их интеллекта и изобретательности. Владельцу такой собаки с не собачьим умом следует найти достойную ее уму работу, то есть направить ее интеллектуальную энергию в нужное русло. Близнецы восприимчивы ко всему новому, хорошо поддаются всем видам дрессировки, если сочтут это нужным.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Щенки–Близнецы неугомонны, а эмоциональность у них проявляется в форме боязливости или нервозности, что не мешает им быть любознательными, живыми и ловкими. С ними надо заниматься рано, чтобы исправить врожденную непоседливость. Однако перегружать занятия физическими упражнениями не стоит: Близнецы быстро устают. Щенков–Близнецов нужно тактично приучать к воде, ибо воды они не выносят. Это теплолюбивые собаки, которые часто мерзнут и простужаются, особенно в зимнее время, так как они очень много лают. С ними нужно много двигаться. Собаки–Близнецы любят сопровождать владельца в поездах, турпоходах, хотя и не слишком крепко привязаны к своим владельцам, легко увязываются за любым человеком, который с ними поиграл или чем–то поманил. Они часто теряются и не возвращаются к своим владельцам.</p>');
+           }
+        else
+        if (dateCheck('22-06-2017', '22-07-2017', date) || dateCheck('22-06-2016', '22-07-2016', date) || dateCheck('22-06-2018', '22-07-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">РАК (22.06 – 22.07)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Собаки, родившиеся под знаком Рака, требуют к себе деликатного обращения. Они очень обидчивы, способны объявлять голодовку протеста или гадить обидчикам в туфли, ботинки, хозяйственные сумки. Собаки–Раки не выносят одиночества, часто воют по ночам, особенно в полнолуние и во время прохождения луной знака Рака или Скорпиона.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">У них деликатный желудок, и кормить их можно только доброкачественной пищей. Собаки–Раки обладают хорошим интеллектом и невероятной памятью. Ни у какого другого знака нет такой потенциальной ласковости, как у Рака. Никто не может быть более игривым и любящим. Если же отношения с владельцем не складываются, у собаки начинается нервная депрессия. Ни один другой зодиакальный психотип собаки не привязан так к дому, как Рак.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Раку нужно время на размышление. Его нельзя торопить. Это великолепные собаки–няньки (особенно, породы колли) для маленьких детей, эти собаки могут вскармливать своим молоком котят–сирот. Собаку–Рака легко научить носить сумку с продуктами.</p>');
+           }
+        else
+        if (dateCheck('23-07-2017', '23-08-2017', date) || dateCheck('23-07-2016', '23-08-2016', date) || dateCheck('23-07-2018', '23-08-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ЛЕВ (23.07 – 23.08)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">В поведении, походке и манерах собак, рожденных под знаком Льва, так и сквозит царственность, иногда величественная лень, когда они, лежа, томно поднимают морду нам навстречу. Крупные собаки вызывают к себе уважение, маленькие же &#8212; это крыловские моськи, лающие на слона.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Гордость и храбрость присущи собакам–Львам всех размеров. Собаку–Льва нельзя &#171;гонять за велосипедом&#187;: гордость не позволит ей отставать. А ведь у всех рожденных под знаком Льва слабое сердце. На выставках собаки–Львы завоевывают призы, но в ожидании ринга их нельзя долго держать под палящим солнцем – может случиться тепловой удар. Старайтесь найти тень и обязательно прихватите с собой бутылочку с прохладной водой.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Пища собак–Львов должна быть бедна жирами (чтобы уберечь от склероза сосудов) и богата белками – они тратят много энергии. Нужны также витамины (свежая тертая морковь, чуть припущенная свекла), собаки этого знака нуждаются в длительном сне. Ф. Величенко, наблюдая соседей – владельцев собак Львов, отмечает, что им на пользу идет содержание этих животных: владельцы становятся благороднее, великодушнее, в них просыпается чувство собственного достоинства.</p>');
+           }
+        else
+        if (dateCheck('24-08-2017', '23-09-2017', date) || dateCheck('24-08-2016', '23-09-2016', date) || dateCheck('24-08-2018', '23-09-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ДЕВА (24.08 – 23.09)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Собаки, рожденные под этим знаком, обычно очень чистоплотны. Хорошо иметь в доме собаку–Деву. Она легко подчиняется дисциплине, хорошо дрессируется, умна, не поддается чужим влияниям, отважно защищает своих владельцев.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">У собак, рожденных под знаком Девы, есть чувство долга&#8230; и вины, если они сделали что–то непозволительное. Виновность у них не написана на морде. Но наблюдательный хозяин сразу же заметит некое изменение поведения своего питомца, как бы старающегося показать, что он очень примерный пес.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Кормить собаку–Деву нужно исключительно свежей пищей, ничего прокисшего и испорченного давать ей нельзя во избежание длительных поносов. Интеллект у собак–Дев настолько велик, что при дрессировке их можно учить счету и различению букв. Это прекрасный домашний сторож.</p>');
+           }
+        else
+        if (dateCheck('24-09-2017', '23-10-2017', date) || dateCheck('24-09-2016', '23-10-2016', date) || dateCheck('24-09-2018', '23-10-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ВЕСЫ (24.09 – 23.10)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Изящество, привлекательность и покладистый нрав характерны для собак–Весов. Присутствие такой собаки в семье гармонизирует и разряжает напряженную семейную обстановку. Меньше возникает конфликтов между поколениями. Даже дети не проявляют желания таскать живую игрушку за хвост или бить ее веником.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Собаки–Весы любят музыку: они подвывают в унисон. В рационе таких собак должно быть больше рыбы, чем мяса и много овощей. Им постоянно нужно много свежей питьевой воды: Весы много пьют. Неправильное воспитание и негармоничные отношения в семье, где живут четвероногие Весы, плохо действуют на их здоровье, вызывая образование камней в почках и мочевом пузыре, блеклость шерсти, шершавость носа и, даже иногда, экзему.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Нервная система собак–Весов должна быть в равновесии, они одинаково чтят всех членов семьи, а если возникает спор, неспособны разобраться, кто прав, а кто виноват, не могут решительно встать на чью либо сторону и от этого физически страдают.</p>');
+           }
+        else
+        if (dateCheck('24-10-2017', '22-11-2017', date) || dateCheck('24-10-2016', '22-11-2016', date) || dateCheck('24-10-2018', '22-11-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">СКОРПИОН (24.10 - 22.11)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Взяв в дом живот­ное-Скорпиона, вы берете на себя серьезную ответственность. Энергетически это самый богатый знак Зодиака, поэтому выгуливать собак-Скорпионов нужно особенно интенсивно. Если вашему питомцу не на что истратить свою энергию, у него портится нрав, он становится непослушным и злым. У Скорпиона нет нюансов в отношениях: вы для него либо лучший друг, либо злейший враг.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Путь "от любви до ненависти" у собаки-Скорпиона короток и бесповоротен, достаточно ущемить его прирожденное свободолюбие или ожесточить наказаниями. Обиженные собаки способны на месть! Зато в служебном отношении собаки-Скорпионы выше всяких похвал. У них очень развито обоняние, диапазон воспринимаемых запахов значительно шире, чем у других собак. Они, например, хорошо различают по запаху металлы. Это лучшие ищейки животного мира.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Они прекрасно справляются с поиском и поимкой преступников. К типу Скорпиона принадлежат лучшие охотничьи собаки. В том числе и самые неутомимые гончие. Они необыкновенно выносливы и живучи. У собак-Скорпионов мощное сверхчувствительное восприятие: вы только еще собираетесь нанести ей удар, а она уже вцепилась в вас. Будьте осторожны в обращении с этим психотипом!</p>');
+           }
+        else
+        if (dateCheck('23-11-2017', '21-12-2017', date) || dateCheck('23-11-2016', '21-12-2016', date) || dateCheck('23-11-2018', '21-12-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">СТРЕЛЕЦ (23.11 - 21.12)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">В отношении с собаками-Стрельцами нужно быть справедливым. У них хорошо развито чувство собственного достоинства, они никогда не поймут раздосадованного человека, срывающего злость на первом попавшемся под руку существе. В целом они жизнерадостны и подвижны, не любят тесных замкнутых пространств, тяготеют к широким просторам.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">На роль цепного пса они не годятся: цепь и будка не для них! На даче или в дерев­не им всегда легче, чем в городской квартире. Собаки-Стрельцы ненавидят поводок, но хорошо поддаются дрессировке и обожают путешествия и постоянные переезды - идеальные животные для бродячего цирка.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Собаки-Стрельцы неугомонны и неутомимы, они жизнерадостны и легко заражаются азартом соревнований. Это прекрасные спортивные и рабочие собаки.</p>');
+           }
+        else
+        if (dateCheck('22-12-2016', '20-01-2017', date) || dateCheck('22-12-2017', '20-01-2018', date) || dateCheck('22-12-2018', '20-01-2019', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">КОЗЕРОГ (22.12 - 20.01)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Псы-Козероги - это уравновешенные, спокойные живот­ные, принимающие установленный в семье порядок и неукоснительно его соблюдающие. Им лучше всего живется там, где существует жесткий режим, твердый распорядок дня. Не выживают они в безалаберных семьях, не соблюдающих никакого режима. Собака-козерог приучает своего владельца к порядку. Он должен ее кормить и выводить на прогулки в строго установленные для этого часы, невзирая на погоду и прочие обстоятельства.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">В пище собаки этого психотипа должны присутствовать витамины А, Д, С, Е. Нужно давать ей глюконат и глицерофосфат кальция либо толченую скорлупу куриных яиц. Консервы, колбаса, рисовая каша и другая крепящая пища противопоказаны из-за склонности к запорам.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Пес-Козерог предан владельцу и по-своему любит его. Всегда норовит лизнуть в лицо. Собака-Козерог мед­ленно, но верно способствует росту благосостояния семьи, в которой она живет, дисциплинируя ее и приучая к последовательности и осторожной настойчивости в достижении поставленных целей.</p>');
+           }
+        if (dateCheck('21-01-2017', '18-02-2017', date) || dateCheck('21-01-2016', '18-02-2016', date) || dateCheck('21-01-2018', '18-02-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">ВОДОЛЕЙ (21.01 - 18.02)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Собака-Водолей совершенно не годится на роль стража дома. Она очень дружелюбна, игрива. Встречает гостей с радостью и является непременным участником любой домашней дружеской вечеринки. К тому же она изрядно трусовата. У Водолеев тонко организованная нервная система, стрессы, окрики, а тем более битье могут вызвать у них недержание мочи. Вирусная инфекция поражает в первую очередь нервную систему и часто приводит к параличу задних конечностей и тику - беспрестанному щелканью зубами.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Поэтому своевременная вакцинация этих собак против чумы плотоядных является очень важным мероприятием по профилактике описанных выше проявлений болезни. В отличие от собак-Козерогов собаки-Водолеи отлично себя чувствуют в условиях бессистемной жизни.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">У них высокая приспособляемость и желание быть предоставленными самим себе. Они с энтузиазмом относятся к еде, но, если их забудешь покормить, переносят это спокойно, компенсируя голод сном. Пищу, они привыкли запивать, поэтому питьевая вода должна для них постоянно находиться в зоне досягаемости.</p>');
+           }
+        if (dateCheck('19-02-2017', '20-03-2017', date) || dateCheck('19-02-2016', '20-03-2016', date) || dateCheck('19-02-2018', '20-03-2018', date))
+		   {
+		   $("#horoscope").html('<span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">РЫБЫ (19.02 - 20.03)</span>');
+		   $("#text_1").html('<p style="text-align: justify; text-indent: 30px;">Собаки-Рыбы - собаки-экстрасенсы. Рожденные под этим знаком собаки отличаются удивительным пониманием, с ними можно делать что угодно, они очень покладисты и готовы служить людям. Они реагируют не просто на команду и интонацию, а понимают смысл слов и готовы, склонив голову набок, выслушивать все наши речи. Более того, собаки-Рыбы обладают даром интуиции и не только предупреждают ваши желания и поступки, но могут и то, о чем вы еще и не догадываетесь. Они исполнительны и умны, достаточно легко поддаются дрессировке, но им мешает склонность к частой смене настроения и легкая ранимость.</p>');
+		   $("#text_2").html('<p style="text-align: justify; text-indent: 30px;">Они не очень агрессивны. Считается, что Рыбы предрасположены к простуде и заболеваниям легких, "слабым местом" у них являются также глаза. Щенки-Рыбы очень самостоятельны и самоуверенны, им тоже свойствен­на частая смена настроения. Они любят воду, не выносят шума, крика и насилия, легко расстраиваются и огорчаются. Воспитывать их нужно с особым тактом, мягко, чаше пользоваться положительным подкреплением. Молодые собаки не страдают отсутствием аппетита. Но нередко удивляют своих владельцев странными симпатиями и антипатиями в еде.</p>');
+		   $("#text_3").html('<p style="text-align: justify; text-indent: 30px;">Животные-Рыбы могут быть эффективными домашними целителями, передавая свою энергию хозяину через поглаживание и трение. Когда вы отдыхаете или болеете, животные экстрасенсы имеют обыкновение ложиться к вам (на вас). Не прогоняйте их. Они безошибочно вычисляют наиболее неблагополучную часть вашего тела и стараются прижаться к ней. Хозяин при этом чувствует облегчение. Но не злоупотребляйте этой способностью твоих четвероногих друзей. Если вы будете забирать у них слишком много энергии, они зачахнут!</p>');
+           }
+
+     }
+  });
+});
+
+jQuery(function($){$(function() {$( "#datepicker" ).datepicker({});$( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy");$(".trigger").click(function(){ $("#datepicker").datepicker("show"); });});});
+
+jQuery(function($){$(function(){$("#title,#text_1,#text_2,#text_3,#text_4").draggable({stack: "img"});});});
+</script>
+
+
+
+		<div id="container"></div>
+		<div id="info" ><span id="options"></span></div>
+
+		<script src="https://res.cloudinary.com/farm26/raw/upload/v1499099676/three.min_wxr46s.js"></script>
+        <script src="js/Projector.js"></script>
+		<script src="js/CanvasRenderer.js"></script>
+
+		<script src="js/stats.min.js"></script>
+
+
+		<script>
+
+			var container, stats;
+			var camera, scene, renderer;
+			var group;
+			var mouseX = 0, mouseY = 0;
+
+			var windowHalfX = $(window).width() / 2;
+			var windowHalfY = $(window.top).height() / 2;
+
+
+            if (is_anime()){
+                init();
+                animate();
+                }
+             else{
+                document.body.style.cursor = 'auto';
+                var options = '<div  class="disable-selection"  style="text-align: center; overflow: hidden;padding-left: 15%;padding-right: 15%;">';
+                if(is_mobile())
+                   options = '<div  class="disable-selection"  style="text-align: center; overflow: hidden;padding-left: 6%;padding-right: 6%;">';
+			    options += '<p style="text-align: justify; text-indent: 20px;">Услуги у большинства разработчиков сайтов абсолютно одинаковы (плюс/минус человеческий фактор). Вот например <a href="https://farm495.ru"><u>ЗДЕСЬ</u></a> они очень хорошо расписаны, а вот <a href="https://farm495.ru/obana.htm"><u>ЗДЕСЬ</u></a> просто сногсшибательно.<h3>ВСЕМ удачи и хорошего дня</h3></p></div>';
+			 	options += '</div>';
+
+                options += '<div id="wrap"><div class="cube-wrapper"><div class="cube"><div class="front"></div><div class="back"></div><div class="top"></div><div class="bottom"></div><div class="left"></div><div class="right"></div></div></div></div>';
+
+				document.getElementById('options').innerHTML = options;
+                }
+
+			function init() {
+
+				container = document.getElementById( 'container' );
+
+				camera = new THREE.PerspectiveCamera( 60, $(window).width() / $(window.top).height(), 1, 2000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+
+				group = new THREE.Group();
+				scene.add( group );
+
+
+
+				var loader = new THREE.TextureLoader();
+				loader.load( 'https://res.cloudinary.com/farm26/image/upload/v1499098975/test2_h4mfxr.jpg', function ( texture ) {
+
+					var geometry = new THREE.SphereGeometry( 200, 25, 25 );
+
+					var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
+					var mesh = new THREE.Mesh( geometry, material );
+					group.add( mesh );
+
+				} );
+
+
+
+				var canvas = document.createElement( 'canvas' );
+				canvas.width = 128;
+				canvas.height = 128;
+
+				var context = canvas.getContext( '2d' );
+				var gradient = context.createRadialGradient(
+					canvas.width / 2,
+					canvas.height / 2,
+					0,
+					canvas.width / 2,
+					canvas.height / 2,
+					canvas.width / 2
+				);
+				gradient.addColorStop( 0.1, 'rgba(210,210,210,1)' );
+				gradient.addColorStop( 1, 'rgba(255,255,255,1)' );
+
+				context.fillStyle = gradient;
+				context.fillRect( 0, 0, canvas.width, canvas.height );
+
+				var texture = new THREE.CanvasTexture( canvas );
+
+				var geometry = new THREE.PlaneBufferGeometry( 300, 300, 3, 3 );
+				var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
+
+				var mesh = new THREE.Mesh( geometry, material );
+				mesh.position.y = - 250;
+				mesh.rotation.x = - Math.PI / 2;
+				group.add( mesh );
+
+				renderer = new THREE.CanvasRenderer();
+				renderer.setClearColor( 0xffffff );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( $(window).width(), $(window.top).height() );
+				container.appendChild( renderer.domElement );
+
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+				var options = '<div  class="disable-selection"  style="z-index: 1;text-align: center; overflow: hidden;padding-left: 15%;padding-right: 15%;">';
+				if(is_mobile())
+				   options = '<div  class="disable-selection"  style="text-align: center; overflow: hidden;padding-left: 6%;padding-right: 6%;">'
+				//options += '<hr style="width: 100%;color: rgb(101,51,51);" /><span style="color: #333399;">ТЕЛЕЦ (21.04. – 21.05.)</span><p style="text-align: justify; text-indent: 30px;">Сложный для человека <span style="color: #333399;">собачий психотип</span>. Это очень упрямые животные, большие собственники, "материалисты" и любители поесть. К собаке–Тельцу совершенно бесполезно применять насилие. В связи с этим неопытные собаководы становятся зачастую "собакой своей собаки", а собака – "хозяином своего хозяина". Переломить Тельца нельзя, его нужно "вылепить" под себя, то есть придумать что–то очень интересное и важное для Вашей собаки. Вот тогда Вы получите не только прилежного ученика, но и стремящегося к постоянному обучению пса.</p><p style="text-align: justify; text-indent: 30px;">Обучаются и дрессируются Тельцы медленно, но основательно. Эти собаки не выносят спешки. Наследуемое упрямство может придавать характеру собаки упорство и настойчивость, так необходимые многим. А это очень важное качество для рабочей или спортивной собаки. Щенки–Тельцы очень влюбчивы, ласковы, миролюбивы, дома уживаются со всеми домашними животными, с собаками дружат. Но всегда являются ярко выраженными собственниками, свое место в доме или во дворе охраняют яростно. Сторожевой пес–Телец верен своему хозяину, никому не даст его в обиду, никого постороннего не впустит.</p><p style="text-align: justify; text-indent: 30px;">В целом Тельцы здоровы, энергичны, достаточно выносливы, хотя заниматься особенно не любят, физические нагрузки повергают их в уныние. Они противники всяческих нововведений, изменений места прогулки или маршрута они не любят. И хотя собака–Телец добрая и ласковая, очень терпимая и терпеливая, но доведенная до состояния ярости становится неуправляемой и по–настоящему опасной, тем более что она легче других переносит боль. Кроме того, Тельцы склонны к ожирению, аллергиям. Им <span style="color: #333399;">необходимы диета</span> и активный образ жизни.</p>';
+				options += '<hr style="width: 100%;color: rgb(101,51,51);" /><br><input type="hidden" id="datepicker"><div id=title title="Знак Зодиака Вашей Собаки"><div id=horoscope class="trigger" style="position: relative;z-index: 1;"><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">БЛИЗНЕЦЫ (22.05. – 21.06.)</span></div></div><div id=text_1 style="position: relative;z-index: 1;"><p style="text-align: justify; text-indent: 30px;">С собакой Близнецом не соскучишься. Это обаятельные собаки, на которых невозможно не обратить внимания, независимо от породы. Собака для тех, кто не устал любить и требует любви и внимания к своей собачьей персоне. Ей постоянно нужно чувствовать себя любимой и обласканной. Она не выносит одиночества. Собака–Близнец – это легкомыслие, чувствительность и эмоциональность в одном существе. Она до непредсказуемости переменчива в своих намерениях и настроениях. Это взбалмошное существо обладает удивительной способностью менять свое поведение, то приноравливаясь к ситуации, то идя ей наперекор. Эта собака (собака!) склонна к обману.</p></div><div id=text_2 style="position: relative;z-index: 1;"><p style="text-align: justify; text-indent: 30px;">С искренним выражением невинности и непорочности на морде будет стоять посреди разгромленной комнаты и искать вместе с Вами пропавшие сосиски. При всем при этом они не бессовестны. Просто они умны, энергичны, дерзки в поступках, так как быстро принимают решения, что является следствием их интеллекта и изобретательности. Владельцу такой собаки с не собачьим умом следует найти достойную ее уму работу, то есть направить ее интеллектуальную энергию в нужное русло. Близнецы восприимчивы ко всему новому, хорошо поддаются всем видам дрессировки, если сочтут это нужным.</p></div><div id=text_3 style="position: relative;z-index: 1;"><p style="text-align: justify; text-indent: 30px;">Щенки–Близнецы неугомонны, а эмоциональность у них проявляется в форме боязливости или нервозности, что не мешает им быть любознательными, живыми и ловкими. С ними надо заниматься рано, чтобы исправить врожденную непоседливость. Однако перегружать занятия физическими упражнениями не стоит: Близнецы быстро устают. Щенков–Близнецов нужно тактично приучать к воде, ибо воды они не выносят. Это теплолюбивые собаки, которые часто мерзнут и простужаются, особенно в зимнее время, так как они очень много лают. С ними нужно много двигаться. Собаки–Близнецы любят сопровождать владельца в поездах, турпоходах, хотя и не слишком крепко привязаны к своим владельцам, легко увязываются за любым человеком, который с ними поиграл или чем–то поманил. Они часто теряются и не возвращаются к своим владельцам.</p></div><div id=text_4 style="position: relative;z-index: 1;"><span style="color: #333399;text-shadow: 1px 1px 1px #d0d0d0;">Услуги у большинства разработчиков сайтов абсолютно одинаковы (плюс/минус человеческий фактор). Вот например <a href="https://farm495.ru"><u>ЗДЕСЬ</u></a> они очень хорошо расписаны, а вот <a href="https://farm495.ru/obana.htm"><u>ЗДЕСЬ</u></a> просто сногсшибательно. ВСЕМ удачи и хорошего дня.</span></div>';
+
+
+				options += '</div>';
+				document.getElementById('options').innerHTML = options;
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = $(window).width() / 2;
+				windowHalfY = $(window.top).height() / 2;
+
+				camera.aspect = $(window).width() / $(window.top).height();
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( $(window).width(), $(window.top).height() );
+//console.log($(window).width() + ' ' + $(window.top).height());
+			}
+
+			function onDocumentMouseMove( event ) {
+
+				mouseX = ( event.clientX - windowHalfX );
+				mouseY = ( event.clientY - windowHalfY );
+
+			}
+
+			//
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render();
+
+
+			}
+
+			function render() {
+
+				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+				camera.lookAt( scene.position );
+
+				group.rotation.y -= 0.005;
+
+				renderer.render( scene, camera );
+
+			}
+
+
+    var $cube = $('.cube');
+	var $cubeSide = $('.cube div');
+
+	var $front = $('.cube .front');
+	var $back = $('.cube .back');
+	var $top = $('.cube .top');
+	var $bottom = $('.cube .bottom');
+	var $left = $('.cube .left');
+	var $right = $('.cube .right');
+
+	var tl = new TimelineMax({repeat: -1, timeScale: 0.5});
+
+	tl.from($front, 1, {z: 150, }, "part-1")
+		.from($back, 1, {z: -150}, "part-1")
+		.from($top, 1, {y: -100}, "part-1")
+		.from($bottom, 1, {y: 100}, "part-1")
+		.from($left, 1, {x: -100}, "part-1")
+		.from($right, 1, {x: 100}, "part-1")
+		.to($cubeSide, 1, {opacity: 1}, "part-1")
+		.to($cube, 2, {rotationY:"+=360", transformOrigin: "50px 50px", ease:Linear.easeNone}, "part-1")
+		.to($cube, 2, {rotationX:"+=360", transformOrigin: "50px 50px", ease:Linear.easeNone}, "part-1")
+
+
+		.to($cube, 2, {rotationY:"+=360", transformOrigin: "50px 50px", ease:Linear.easeNone}, "part-2")
+		.to($cube, 2, {rotationX:"+=360", transformOrigin: "50px 50px", ease:Linear.easeNone}, "part-2")
+		.to($cubeSide, 1, {opacity: 0.7}, "part-2")
+		.to($front, 1, {z: 150}, "part-2")
+		.to($back, 1, {z: -150}, "part-2")
+		.to($top, 1, {y: -100}, "part-2")
+		.to($bottom, 1, {y: 100}, "part-2")
+		.to($left, 1, {x: -100}, "part-2")
+		.to($right, 1, {x: 100}, "part-2");
+
+	$('.cube').on("mouseover", function(){
+		tl.timeScale(0.2)
+	});
+	$('.cube').on("mouseleave", function(){
+		tl.timeScale(0.7)
+	});
+
+	$('.cube div').click(function(){
+		if($(this).hasClass('active')){
+			hideSide()
+		} else {
+			tl.pause();
+			var sideClass = $(this).attr('class');
+			showSide(sideClass);
+			$(this).addClass('active');
+		}
+	});
+
+	function showSide(className){
+		TweenLite.to($("."+className), 1, {scale: 1.})
+
+        TweenLite.to($front, 1, {z: 50})
+		TweenLite.to($back, 1, {z: -50})
+		TweenLite.to($top, 1, {y:0})
+		TweenLite.to($bottom, 1, {y: 0})
+		TweenLite.to($left, 1, {x: 0})
+		TweenLite.to($right, 1, {x: 0});
+
+		switch(className) {
+		    case "front":
+		        TweenLite.to($cube, 1, {rotationX:0, rotationY: 0})
+		        TweenLite.to($front, 1, {z: 150})
+		        break;
+		    case "back":
+		        TweenLite.to($cube, 1, {rotationX:0, rotationY: 180})
+				TweenLite.to($back, 1, {z: -150})
+		        break;
+		    case "top":
+		        TweenLite.to($cube, 1, {rotationX:-90, rotationY: 0})
+				TweenLite.to($top, 1, {y: -100, z: 150})
+		        break;
+		    case "bottom":
+		        TweenLite.to($cube, 1, {rotationX:90, rotationY: 0})
+				TweenLite.to($bottom, 1, {y: 100, z: 150})
+		        break;
+		    case "left":
+		        TweenLite.to($cube, 1, {rotationX:0, rotationY: 90})
+				TweenLite.to($left, 1, {x: -100, z: -150, y: 0})
+		        break;
+		    case "right":
+		        TweenLite.to($cube, 1, {rotationX:0, rotationY: -90})
+				TweenLite.to($right, 1, {x: 100, z: -150, y: -100})
+		        break;
+		}
+
+	}
+
+	function hideSide(){
+		$('.active').removeClass('active');
+		TweenLite.to($cube, 1, {rotationY:0, rotationX: 0, ease:Linear.easeNone, onComplete: function(){tl.restart();}});
+		TweenLite.to($front, 1, {z: 150});
+		TweenLite.to($back, 1, {z: -150});
+		TweenLite.to($top, 1, {y: -100, z: 50});
+		TweenLite.to($bottom, 1, {y: 100, z: 50});
+		TweenLite.to($left, 1, {x: -100, z: -50, y: 0});
+		TweenLite.to($right, 1, {x: 100, z: -50, y: 0});
+		TweenLite.to($cubeSide, 1, {scale: 1});
+	}
+
+</script>
+	</body>
+</html>

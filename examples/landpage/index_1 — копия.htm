@@ -1,0 +1,208 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<style>
+
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin:0;
+  padding:0;
+  perspective: 2px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
+  background-color: RGB(226, 230, 235);
+}
+
+h1 {
+   font-size: 150%
+}
+
+p {
+  font-size: 110%;
+  line-height: 110%;
+  color: #333;
+}
+
+.slide {
+  position: relative;
+  padding: 5% 5%;
+  min-height: 70vh;
+  max-height: 70vh;
+  width: 100vw;
+  box-sizing: border-box;
+
+  transform-style: inherit;
+}
+.slide1 {
+  position: relative;
+    padding: 5% 5%;
+    min-height: 90vh;
+    max-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+
+  transform-style: inherit;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .8);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+img:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right:0;
+}
+.slide1:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right:0;
+}
+.title {
+  width: 60%;
+  padding: 2%;
+  border-radius: 5px;
+  background: rgba(240,230,220, .8);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide, .slide:before {
+  background: 25% 15% / cover;
+
+}
+.slide1:nth-child(2n){
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slide1:nth-child(2n+1){
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide1, .slide1:before {
+  background: 25% 15% / cover;
+
+}
+.header {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+  top:-100;
+}
+
+#title {
+  background-image: url("./index_files/parallax-section-background-03.jpg");
+
+}
+
+#slide1:before {
+  background-image: url("./index_files/test-bg.png");
+  transform: translateZ(-1px) scale(2);
+  z-index:-1;
+
+}
+
+#slide2 {
+  background-image: url("./index_files/test-bg.png");
+  background-attachment: fixed;
+  z-index:1;
+}
+
+#slide3:before {
+  background-image: url("./index_files/nature-water_00403048.jpg");
+  transform: translateZ(-1px) scale(2);
+  z-index:-1;
+
+}
+
+#slide4 {
+    background-image: url("./index_files/Sky-Clouds-Background-11.jpg");
+
+    z-index:-1;
+}
+</style>
+</head>
+
+<body>
+
+<div id="title" class="slide header">
+  <h1>СТОМАТОЛОГИЧЕСКАЯ КЛИНИКА<br>пр. Октябрьской Революции, 26-28<br>+7 (8652) 26-33-10</h1>
+</div>
+
+<div id="slide1" class="slide1">
+  <div class="title">
+    <h1>Информация</h1>
+    <p>В поликлинике оказывается бесплатная медицинская помощь детскому населению при наличии полиса обязательного медицинского страхования следующих страховых компаний в городе Ставрополе:</p>
+    <p>- Филиал ООО "СК "Ингосстрах-М" в г. Ставрополе - "ЭМЭСК"</p>
+    <p>- АО ВТБ Медицинское страхование</p>
+    <p>- Территориальный фонд обязательного медицинского страхования Ставропольского края</p>
+    <p>Инокраевые граждане, имеющие полисы обязательного медицинского страхования, принадлежащие другим страховым компаниям, так же могут получить бесплатную медицинскую помощь.</p>
+    <p></p>
+  </div>
+</div>
+
+<div id="slide2" class="slide">
+  <div class="title" >
+    <h1>Slide 2</h1>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+  </div>
+  <img src="./index_files/parallax-section-background-03.jpg">
+  <img src="./index_files/test-bg.png">
+</div>
+
+<div id="slide3" class="slide">
+  <div class="title">
+    <h1>Slide 3</h1>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+  </div>
+</div>
+
+<div id="slide4" class="slide">
+    <h1>The End</h1>
+</div>
+
+</body>
+</html>
